@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Audio Compressor</title>
+   <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+   <div class="wrapper">
+      <form id="compressionForm" class="compression-form">
+         <div class="container">
+            <input accept="audio/*" type="file" id="fileInput" required>
+            <div class="audio-preview">
+               <audio src="" id="previewAudio" controls></audio>
+            </div>
+            <div class="button-cont">
+               <button class="compress" type="submit" id="compressButton">Compress Audio</button>
+            </div>
+         </div>
+      </form>
+   </div>
+   <script src="compress.js"></script>
+   <script>
+      // Ambil elemen input file
+      const fileInput = document.getElementById('fileInput');
+      // Ambil elemen audio
+      const previewAudio = document.getElementById('previewAudio');
+
+      // Tambahkan event listener untuk perubahan input file
+      fileInput.addEventListener('change', function (event) {
+         // Ambil file yang dipilih
+         const file = event.target.files[0];
+         // Buat URL objek untuk file
+         const fileURL = URL.createObjectURL(file);
+         // Atur sumber audio
+         previewAudio.src = fileURL;
+      });
+   </script>
+</body>
+
+</html>
